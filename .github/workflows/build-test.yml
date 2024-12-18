@@ -1,0 +1,75 @@
+# SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
+#
+# SPDX-License-Identifier: GPL-3.0-only
+
+name: Build Project # Test suite soon(tm)
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+
+jobs:
+  linux64:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Install ninja
+      run: sudo apt install -y ninja-build
+
+    - uses: actions/checkout@v4
+
+    - name: Setup builddir with Cmake
+      run: >
+        cmake -B build \
+              -G Ninja \
+              -DENABLE_WERROR=true \
+              -DCMAKE_BUILD_TYPE=Release \
+              -S ${{ github.workspace }}
+
+    - name: Build
+      run: |
+        cd build
+        ninja
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: malachite-game-linux-x64
+        path: build/malachite/malachite-game
+
+  windows-msys2-ucrt64:
+    runs-on: windows-latest
+
+    defaults:
+      run:
+        shell: msys2 {0}
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - uses: msys2/setup-msys2@v2
+      with:
+        msystem: UCRT64
+        update: true
+        pacboy: >-
+          gcc:p
+          cmake:p
+          ninja:p
+
+    - name: Setup builddir with Cmake
+      run: >
+        cmake -B build \
+              -G Ninja \
+              -DENABLE_WERROR=true \
+              -DCMAKE_BUILD_TYPE=Release \
+              -S .
+
+    - name: Build
+      run: |
+        cd build
+        ninja
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: malachite-game-windows-x64
+        path: build/malachite/malachite-game.exe

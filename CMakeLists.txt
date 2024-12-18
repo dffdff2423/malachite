@@ -30,7 +30,7 @@ if(CLANG_TIDY_PROGRAM)
     if(NOT ENABLE_WERROR)
         set(CLANG_TIDY_COMMAND "${CLANG_TIDY_PROGRAM}" "--use-color")
     else()
-        set(CLANG_TIDY_COMMAND "${CLANG_TIDY_PROGRAM}" "--use-color --warnings-as-errors=*")
+        set(CLANG_TIDY_COMMAND "${CLANG_TIDY_PROGRAM}" "--use-color" "--warnings-as-errors=*")
     endif()
 endif()
 

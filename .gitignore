@@ -2,6 +2,6 @@
 #
 # SPDX-License-Identifier: GPL-3.0-only
 
-build*
-compile_commands.json
-.cache
+/build*
+/compile_commands.json
+/.cache
