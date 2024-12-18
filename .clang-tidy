@@ -1,0 +1,6 @@
+# SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
+#
+# SPDX-License-Identifier: GPL-3.0-only
+
+Checks:          'bugprone-*,clang-analyzer-*,concurrency-*,modernize-*,performance-*,cppcoreguidelines-*,misc-include-cleaner,readability-*,-readability-identifier-length'
+#HeaderFilterRegex: ''
