@@ -1,0 +1,20 @@
+# SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
+#
+# SPDX-License-Identifier: GPL-3.0-only
+
+name: Check Reuse Compliance
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+
+jobs:
+  check-reuse-compliance:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install and lint project with reuse
+      run: pipx run reuse lint
