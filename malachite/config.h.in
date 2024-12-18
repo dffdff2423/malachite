@@ -1,0 +1,15 @@
+/*
+ * SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
+ *
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+
+#pragma once
+
+#cmakedefine PROJECT_NAME "@PROJECT_NAME@"
+#cmakedefine PROJECT_VERSION "@PROJECT_VERSION@"
+#cmakedefine BINARY_NAME "@BINARY_NAME@"
+
+#define ENGINE_NAME PROJECT_NAME
+#define ENGINE_VERSION PROJECT_VERSION
+#define ENGINE_VERSION_USER ENGINE_VERSION"-devel"

@@ -2,5 +2,5 @@
 #
 # SPDX-License-Identifier: GPL-3.0-only
 
-Checks:          'bugprone-*,clang-analyzer-*,concurrency-*,modernize-*,performance-*,cppcoreguidelines-*,misc-include-cleaner,readability-*,-readability-identifier-length'
+Checks:          'bugprone-*,clang-analyzer-*,concurrency-*,modernize-*,performance-*,cppcoreguidelines-*,misc-include-cleaner,readability-*,-readability-identifier-length,-modernize-deprecated-headers'
 #HeaderFilterRegex: ''

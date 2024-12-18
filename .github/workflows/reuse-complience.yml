@@ -4,10 +4,7 @@
 
 name: Check Reuse Compliance
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
+on: [ push ]
 
 jobs:
   check-reuse-compliance:

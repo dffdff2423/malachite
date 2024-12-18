@@ -8,11 +8,11 @@ on: [ push ]
 
 jobs:
   linux64:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
-    - name: Install ninja
-      run: sudo apt install -y ninja-build libwayland-dev libxkbcommon-dev xorg-dev
+    - name: Install dependencies and buildtools
+      run: sudo apt install -y ninja-build libwayland-dev libxkbcommon-dev xorg-dev libvulkan-dev
 
     - uses: actions/checkout@v4
 
@@ -51,6 +51,8 @@ jobs:
           gcc:p
           cmake:p
           ninja:p
+          vulkan-headers:p
+          vulkan-loader:p
 
     - name: Setup builddir with Cmake
       run: >

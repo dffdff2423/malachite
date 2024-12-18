@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: GPL-3.0-only
 
 cmake_minimum_required(VERSION 3.15..3.31)
-project(Malachite VERSION 0.1
+project(malachite VERSION 0.1
                   DESCRIPTION "2d vulkan game engine"
                   LANGUAGES C CXX)
 
@@ -45,5 +45,7 @@ CPMAddPackage(
       "GLFW_BUILD_EXAMPLES OFF"
       "GLFW_BUILD_DOCS OFF"
 )
+
+find_package(Vulkan)
 
 add_subdirectory("malachite")
