@@ -50,7 +50,6 @@ jobs:
     - uses: msys2/setup-msys2@v2
       with:
         msystem: UCRT64
-        update: true
         pacboy: >-
           gcc:p
           cmake:p
@@ -69,7 +68,16 @@ jobs:
         cd build
         ninja
 
+    - name: Setup artifact for upload
+      run: |
+        mkdir artifact
+        cp build/malachite/*.exe artifact
+        # Copy MINGW DLLs
+        cd artifact
+        ldd *.exe | grep /ucrt64 | awk '{print $3}' | xargs -i cp {} .
+
+
     - uses: actions/upload-artifact@v4
       with:
         name: malachite-game-windows-x64
-        path: build/malachite/malachite-game.exe
+        path: artifact
