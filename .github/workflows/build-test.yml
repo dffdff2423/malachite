@@ -4,10 +4,7 @@
 
 name: Build Project # Test suite soon(tm)
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
+on: [ push ]
 
 jobs:
   linux64:
@@ -15,7 +12,7 @@ jobs:
 
     steps:
     - name: Install ninja
-      run: sudo apt install -y ninja-build
+      run: sudo apt install -y ninja-build libwayland-dev libxkbcommon-dev xorg-dev
 
     - uses: actions/checkout@v4
 
