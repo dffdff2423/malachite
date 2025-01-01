@@ -2,5 +2,16 @@
 #
 # SPDX-License-Identifier: GPL-3.0-only
 
-Checks:          'bugprone-*,clang-analyzer-*,concurrency-*,modernize-*,performance-*,cppcoreguidelines-*,misc-include-cleaner,readability-*,-readability-identifier-length,-modernize-deprecated-headers'
-#HeaderFilterRegex: ''
+Checks:  'bugprone-*,
+          clang-analyzer-*,
+          concurrency-*,
+          modernize-*,
+          performance-*,
+          cppcoreguidelines-*,
+          misc-include-cleaner,
+
+          -modernize-deprecated-headers,
+          -cppcoreguidelines-pro-type-union-access,
+          -cppcoreguidelines-prefer-member-initializer,
+          -bugprone-easily-swappable-parameters
+          '

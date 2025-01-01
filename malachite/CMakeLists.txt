@@ -6,6 +6,7 @@ include(utils)
 
 set(MALACHITE_CLIENT_SOURCES
     "client/main.cc"
+    "client/window.cc"
 )
 add_executable(${BINARY_NAME} ${MALACHITE_CLIENT_SOURCES})
 
@@ -31,3 +32,6 @@ target_include_directories(${BINARY_NAME} PUBLIC ..) # for config.h
 target_compile_definitions(${BINARY_NAME} PRIVATE "GLM_FORCE_RADIANS")
 target_compile_definitions(${BINARY_NAME} PRIVATE "GLM_FORCE_EXPLICIT_CTOR")
 target_compile_definitions(${BINARY_NAME} PRIVATE "GLM_FORCE_DEPTH_ZERO_TO_ONE")
+
+# glfw options
+target_compile_definitions(${BINARY_NAME} PRIVATE "GLFW_INCLUDE_NONE")
